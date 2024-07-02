@@ -37,27 +37,27 @@
 	</head>
 	<body>
 		
-		<!-- HEADER -->
-		<header>
-			<!-- MAIN HEADER -->
-			<div id="header">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<!-- LOGO -->
-								<a href="/" class="logo">
-									<img src="/../../Smarty/templates/img/biglogo.png" alt="" class="center">
-								</a>
-						<!-- /LOGO -->																						
-					</div>
-					<!-- row -->
+	<!-- HEADER -->
+	<header>
+		<!-- MAIN HEADER -->
+		<div id="header">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- LOGO -->
+							<a href="/" class="logo">
+								<img src="/../../Smarty/templates/img/biglogo.png" alt="" class="center">
+							</a>
+					<!-- /LOGO -->																						
 				</div>
-				<!-- container -->
+				<!-- row -->
 			</div>
-			<!-- /MAIN HEADER -->
-		</header>
-		<!-- /HEADER -->
+			<!-- container -->
+		</div>
+		<!-- /MAIN HEADER -->
+	</header>
+	<!-- /HEADER -->
 
 
 	<!-- SECTION -->
@@ -66,114 +66,112 @@
 		<div class="container">
 			<!-- row -->
 			<div class="row">
-					<!-- Inserisci Prodotto -->
-					<div class="col-md-12">
-						<!-- Verifica EAN - Sempre visibile -->
-						{if $success=="true"}
-							<div class="section-title">
-								<h2 class="title" style="color: green;">Articolo inserito con successo!</h2>
-								<br>
-								<br>
-								<br>
-								<a href="/Seller/addArticle" class="primary-btn order-submit">Aggiungi un altro articolo</a>
-								<a href="/Seller/dashboard" class="primary-btn order-submit">Torna alla dashboard</a>
-							</div>
-						{else}
-							{if $found == ""}
-								<div class="col-md-12">
-									<div class="billing-details">
-										<div class="section-title">
-											<h3 class="title">Inserisci Prodotto</h3>
+				<!-- Inserisci Prodotto -->
+				<div class="col-md-12">
+					<!-- Verifica EAN - Sempre visibile -->
+					{if $success=="true"}
+						<div class="section-title">
+							<h2 class="title" style="color: green;">Articolo inserito con successo!</h2>
+							<br>
+							<br>
+							<br>
+							<a href="/Seller/addArticle" class="primary-btn order-submit">Aggiungi un altro articolo</a>
+							<a href="/Seller/dashboard" class="primary-btn order-submit">Torna alla dashboard</a>
+						</div>
+					{else}
+						{if $found == ""}
+							<div class="col-md-12">
+								<div class="billing-details">
+									<div class="section-title">
+										<h3 class="title">Inserisci Prodotto</h3>
+									</div>
+									<form action="/Seller/addArticle" method="post" class="text-center">
+										<div class="form-group">
+											<input class="input form-control" type="text" name="EAN" placeholder="Inserisci qui l'EAN del tuo prodotto" required pattern="[0-9]*" minlength="13" maxlength="13" title="EAN deve essere un numero di 13 cifre">
 										</div>
-										<form action="/Seller/addArticle" method="post" class="text-center">
-											<div class="form-group">
-												<input class="input form-control" type="text" name="EAN" placeholder="Inserisci qui l'EAN del tuo prodotto" required pattern="[0-9]*" minlength="13" maxlength="13" title="EAN deve essere un numero di 13 cifre">
-											</div>
-											<button class="primary-btn order-submit" type="submit">Verifica Esistenza</button>
-										</form>
-								</div>
-							{/if}
-							<!-- Form Inserimento Prodotto -->
-							{if $found == "true"}
-							<p style="color: green;">EAN già utilizzato alcuni campi sono stati riempiti!</p>
-							<form action="/Seller/pullArticle" method="post">
-								<div class="form-group">
-									<input class="input" type="text" name="EAN" value="{$EAN}" required readonly>
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="product-name" value="{$productName}" required readonly>
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="artist-name" value="{$artistName}" required readonly>
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="format" value="{$format}" required readonly>
-								</div>
-								<div class="form-group price-group">
-									<input class="input" type="number" name="price" placeholder="Inserisci prezzo articolo" step="0.01" required>
-									<span class="euro-input-symbol">€</span>
-								</div>
-								<div class="form-group">
-									<input class="input" type="number" name="quantity" placeholder="Inserisci numero articoli in vendita" required pattern="[0-9]" maxlenght="11" required>
-								</div>
-								<button class="primary-btn order-submit" type="submit">Aggiungi Articolo</button>
-							</form>
-							<br>
+										<button class="primary-btn order-submit" type="submit">Verifica Esistenza</button>
+									</form>
+							</div>
 						{/if}
-						
-						{if $found == "false"}
-							<p style="color: red;">Questo EAN non è mai stato usato!</p>
-							<form action="/Seller/pullArticle" method="post">
-								<div class="form-group">
-									<input class="input" type="text" name="EAN" value="{$EAN}" required readonly>
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="product-name" placeholder="Inserisci nome prodotto" required>
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="artist-name" placeholder="Inserisci nome/i artista/i" required>
-								</div>
-								<div class="form-group">
-									<select class="input form-control" name="format" required>
-										<option value="" disabled selected>Seleziona formato</option>
-										{foreach from=$formats item=format}
-										<option value="{$format}">{$format}</option>
-										{/foreach}
-									</select>
-								</div>
-								<div class="form-group price-group">
-									<input class="input" type="number" name="price" placeholder="Inserisci prezzo articolo" step="0.01" required>
-									<span class="euro-input-symbol">€</span>
-								</div>
-								<div class="form-group">
-									<input class="input" type="number" name="quantity" placeholder="Inserisci numero articoli in vendita" required pattern="[0-9]" maxlenght="11" required>
-								</div>
-								<button class="primary-btn order-submit" type="submit">Aggiungi Articolo</button>
-							</form>
-							<br>
-						{/if}
-						{/if}
-						{if $success=="false"}
-							<a href="/Seller/dashboard" class="btn btn-outline-primary btn-lg dashboard-button-inverse" ><strong>Torna alla dashboard</strong></a>
-						{/if}
-
-					</div>
-						
-						<!-- /Form Inserimento Prodotto -->					
+						<!-- Form Inserimento Prodotto -->
+						{if $found == "true"}
+						<p style="color: green;">EAN già utilizzato alcuni campi sono stati riempiti!</p>
+						<form action="/Seller/pullArticle" method="post">
+							<div class="form-group">
+								<input class="input" type="text" name="EAN" value="{$EAN}" required readonly>
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="product-name" value="{$productName}" required readonly>
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="artist-name" value="{$artistName}" required readonly>
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="format" value="{$format}" required readonly>
+							</div>
+							<div class="form-group price-group">
+								<input class="input" type="number" name="price" placeholder="Inserisci prezzo articolo" step="0.01" required>
+								<span class="euro-input-symbol">€</span>
+							</div>
+							<div class="form-group">
+								<input class="input" type="number" name="quantity" placeholder="Inserisci numero articoli in vendita" required pattern="[0-9]" maxlenght="11" required>
+							</div>
+							<button class="primary-btn order-submit" type="submit">Aggiungi Articolo</button>
+						</form>
+						<br>
+					{/if}
+					
+					{if $found == "false"}
+						<p style="color: red;">Questo EAN non è mai stato usato!</p>
+						<form action="/Seller/pullArticle" method="post">
+							<div class="form-group">
+								<input class="input" type="text" name="EAN" value="{$EAN}" required readonly>
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="product-name" placeholder="Inserisci nome prodotto" required>
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="artist-name" placeholder="Inserisci nome/i artista/i" required>
+							</div>
+							<div class="form-group">
+								<select class="input form-control" name="format" required>
+									<option value="" disabled selected>Seleziona formato</option>
+									{foreach from=$formats item=format}
+									<option value="{$format}">{$format}</option>
+									{/foreach}
+								</select>
+							</div>
+							<div class="form-group price-group">
+								<input class="input" type="number" name="price" placeholder="Inserisci prezzo articolo" step="0.01" required>
+								<span class="euro-input-symbol">€</span>
+							</div>
+							<div class="form-group">
+								<input class="input" type="number" name="quantity" placeholder="Inserisci numero articoli in vendita" required pattern="[0-9]" maxlenght="11" required>
+							</div>
+							<button class="primary-btn order-submit" type="submit">Aggiungi Articolo</button>
+						</form>
+						<br>
+					{/if}
+					{/if}
+					{if $success=="false"}
+						<a href="/Seller/dashboard" class="btn btn-outline-primary btn-lg dashboard-button-inverse" ><strong>Torna alla dashboard</strong></a>
+					{/if}
 				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
+				<!-- /Form Inserimento Prodotto -->
+			</div>			
+			<!-- /row -->
 		</div>
-		<!-- /SECTION -->
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
 
-		<!-- jQuery Plugins -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/slick.min.js"></script>
-		<script src="js/nouislider.min.js"></script>
-		<script src="js/jquery.zoom.min.js"></script>
-		<script src="js/main.js"></script>
+	<!-- jQuery Plugins -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/main.js"></script>
 
-	</body>
+</body>
 </html>
