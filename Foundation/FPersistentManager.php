@@ -227,7 +227,7 @@ class FPersistentManager{
 
     /**
      * Verify if an order item is reviewed
-     * @param EOrderItem $orderItem the order item to verify
+     * @param int $orderItem the order item to verify
      * @return bool the result of the verification
      */
     public static function isOrderItemReviewed($orderItem){
