@@ -7,9 +7,9 @@
  * Database configuration 
  */
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'my_ufficiale');
-define('DB_USER', 'ufficiale');
-define('DB_PASS', '4r3e2w1qA!');
+define('DB_NAME', 'my_musiccorner');
+define('DB_USER', 'musiccorner');
+define('DB_PASS', 'w2M4779NJEtq');
 define('SQL_FILE_PATH', 'musiccorner.sql');
 
 /**

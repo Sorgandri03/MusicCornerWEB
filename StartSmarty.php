@@ -1,5 +1,5 @@
 <?php
-require_once '/membri/ufficiale/Smarty/libs/Smarty.class.php';
+require_once '/membri/musiccorner/Smarty/libs/Smarty.class.php';
 use Smarty\Smarty;
 /**
  * This class is responsible for initializing the Smarty template engine.
