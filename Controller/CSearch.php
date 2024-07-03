@@ -12,12 +12,19 @@ class CSearch{
          * Retrieve articles from query
          */
         $articles = FPersistentManager::getInstance()->searchArticles(urldecode($query));
+        if (count($articles) == 0){
+            $view = new VSearch();
+            $view->showSearchError();
+            return;
+        }else{
+            /**
+             * Show search page
+             */
+            $view = new VSearch();
+            $view->showSearch($articles);
+        }
         
-        /**
-         * Show search page
-         */
-        $view = new VSearch();
-        $view->showSearch($articles);
+
     }
 
     /**

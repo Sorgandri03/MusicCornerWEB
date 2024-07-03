@@ -74,6 +74,10 @@ class VSearch
         $this->smarty->assign('result', $results);
         $this->smarty->display('search.tpl');
     }
+    public function showSearchError() {
+        $this->smarty->assign('error', true);
+        $this->smarty->display('search.tpl');
+    }
     
     /**
      * Show the article page

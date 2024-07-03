@@ -138,6 +138,9 @@
 				<!-- STORE -->
 					<!-- store products -->
 					<div class="row">
+						{if $error=true}
+							<h3>La ricerca non ha prodotto risultati</h3>
+						{/if}
 						{foreach from=$result item=article}
 						{assign var="stocks" value=$article->getStocks()}
 							<!-- product -->
