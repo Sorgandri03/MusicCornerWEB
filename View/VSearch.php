@@ -74,9 +74,14 @@ class VSearch
         $this->smarty->assign('result', $results);
         $this->smarty->display('search.tpl');
     }
+
+    /**
+     * Show the search page with an error message if no items are found
+     * @throws SmartyException
+     */
     public function showSearchError() {
         $this->smarty->assign('error', true);
-        $this->smarty->display('search.tpl');
+        $this->showSearch(array());
     }
     
     /**
