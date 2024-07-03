@@ -9,7 +9,7 @@
 		<title>{$username} dashboard</title> 
 
         <!-- favicon -->
-		<link rel="icon" href="Smarty/templates/img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="../../Smarty/templates/img/favicon.ico" type="image/x-icon">
 
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
