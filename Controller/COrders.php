@@ -554,11 +554,12 @@ class COrders{
         /**
          * Add order items to the order
          */
+        $failure = false;
         foreach($cart->getCartItems() as $item => $quantity){
             FPersistentManager::getInstance()->lockStockAndOrder();
             $stock = FPersistentManager::getInstance()->retrieveObj(EStock::class, $item);
             if($stock->getQuantity() < $quantity){
-                echo "Non ci sono abbastanza prodotti in magazzino";
+                $failure = true;
                 $order->setPrice($order->getPrice() - $stock->getPrice() * $quantity);
                 FPersistentManager::getInstance()->updateObj($order);
                 $cart->updateArticle($item, $stock->getQuantity());
@@ -576,7 +577,8 @@ class COrders{
         $order = FPersistentManager::getInstance()->retrieveObj(EOrder::class, $order->getId());
         if(count($order->getOrderItems()) == 0){
             FPersistentManager::getInstance()->deleteObj($order);
-            header('Location: /Orders/cart');
+            $v = new VOrders();
+            $v->showOrderConfirmTotalFailure();
             return;
         }
 
@@ -589,6 +591,11 @@ class COrders{
          * Show order confirmation page
          */
         $v = new VOrders();
-        $v->showOrderConfirm();
+        if($failure){
+            $v->showOrderConfirmFailure();
+        }
+        else{
+            $v->showOrderConfirm();
+        }
     }
 }
