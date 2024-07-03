@@ -89,9 +89,43 @@ class COrders{
             /**
              * Show cart page
              */
+            self::checkCart();
             $v = new VOrders();
             $v->showCart();
         }        
+    }
+
+    public static function checkCart(){
+        /**
+         * Retrieve user cart from the session
+         */
+        if(CUser::islogged()){
+            $customer = USession::getInstance()->getSessionElement('customer');
+            if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
+                $cart = USession::getInstance()->getSessionElement($customer->getUsername());
+            }
+            else{
+                $cart = new ECart($customer->getId());
+                USession::getInstance()->setSessionElement($customer->getUsername(),$cart);
+            }
+        }
+        else {
+            if(USession::getInstance()->isSetSessionElement('cartguest')){
+                $cart = USession::getInstance()->getSessionElement('cartguest');
+            }
+            else{
+                $cart = new ECart('guest');
+                USession::getInstance()->setSessionElement('cartguest',$cart);
+            }
+        }
+
+        foreach($cart->getCartItems() as $item => $quantity){
+            $stock = FPersistentManager::getInstance()->retrieveObj(EStock::class, $item);
+            if($stock->getQuantity() < $quantity){
+                $quantity = $stock->getQuantity();
+                $cart->updateArticle($item, $quantity);
+            }
+        }
     }
 
     /**
@@ -285,6 +319,14 @@ class COrders{
                 $cart = new ECart('guest');
                 USession::getInstance()->setSessionElement('cartguest',$cart);
             }
+        }
+
+        $old = $cart->getCartItems();
+        self::checkCart();
+        $new = $cart->getCartItems();
+        if($old != $new){
+            header('Location: /Orders/cart');
+            return;
         }
 
         /**
