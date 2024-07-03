@@ -68,7 +68,7 @@ class VOrders{
                 USession::getInstance()->setSessionElement('cartguest',$cart);
             }
         }
-
+        COrders::checkCart();
         $this->smarty->assign('cart', $cart);
         $this->smarty->display('cart.tpl');
     }
@@ -137,6 +137,28 @@ class VOrders{
     public function showOrderConfirm()
     {
         $this->smarty->assign('success', true);
+        $this->showOrderPayment();
+    }
+
+    /**
+     * Show the order confirmation page with an error message if some of the items fail to be ordered
+     * @throws SmartyException
+     */
+    public function showOrderConfirmFailure()
+    {
+        $this->smarty->assign('error', true);
+        $this->smarty->assign('totalerror', false);
+        $this->showOrderPayment();
+    }
+
+    /**
+     * Show the order confirmation page with an error message if the order fails
+     * @throws SmartyException
+     */
+    public function showOrderConfirmTotalFailure()
+    {
+        $this->smarty->assign('error', false);
+        $this->smarty->assign('totalerror', true);
         $this->showOrderPayment();
     }
 }

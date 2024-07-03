@@ -6,7 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>MusicCorner - Ordina</title>
+		<title>MusicCorner - Ordina</title> 
+
+        <!-- favicon -->
+		<link rel="icon" href="Smarty/templates/img/favicon.ico" type="image/x-icon">
 
  		<!-- Google font -->
  		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -66,6 +69,36 @@
 					<br>
 					<h1 class="text-center">
 						Ordine effettuato con successo!
+					</h1>
+					<br>
+					<br>
+					<a href="/" class="btn btn-outline-primary btn-lg dashboard-button-inverse" ><strong>Torna alla home</strong></a>
+				</div>
+			</div>
+		</div>
+		{else if $error}
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<br>
+					<br>
+					<h1 class="text-center">
+						Alcuni degli articoli sono stati rimossi dal carrello, controlla i prodotti che hai ordinato
+					</h1>
+					<br>
+					<br>
+					<a href="/" class="btn btn-outline-primary btn-lg dashboard-button-inverse" ><strong>Torna alla home</strong></a>
+				</div>
+			</div>
+		</div>
+		{else if $totalerror}
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<br>
+					<br>
+					<h1 class="text-center">
+						Nessun articolo dell'ordine era disponibile, controlla gli articoli e riprova
 					</h1>
 					<br>
 					<br>

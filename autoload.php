@@ -8,23 +8,23 @@ function my_autoloader($className) {
     $firstLetter = $className[0];
     switch ($firstLetter) {
         case 'E':
-            include_once('/membri/ufficiale/Entity/'. $className . '.php' );
+            include_once('/membri/musiccorner/Entity/'. $className . '.php' );
             break;
 
         case 'F':
-            include_once('/membri/ufficiale/Foundation/' . $className . '.php' );
+            include_once('/membri/musiccorner/Foundation/' . $className . '.php' );
             break;
 
         case 'V':
-            include_once('/membri/ufficiale/View/'. $className . '.php' );
+            include_once('/membri/musiccorner/View/'. $className . '.php' );
             break;
 
         case 'C':
-            include_once('/membri/ufficiale/Controller/'. $className . '.php' );
+            include_once('/membri/musiccorner/Controller/'. $className . '.php' );
             break;
 
         case 'U':
-            include_once ('/membri/ufficiale/Utility/'. $className. '.php');
+            include_once ('/membri/musiccorner/Utility/'. $className. '.php');
             break;
     }
 }

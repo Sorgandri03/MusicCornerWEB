@@ -1,7 +1,7 @@
 <?php
 
-require_once '/membri/ufficiale/autoload.php';
-require_once '/membri/ufficiale/config/config.php';
+require_once '/membri/musiccorner/autoload.php';
+require_once '/membri/musiccorner/config/config.php';
 
 /**
  * The front controller is started and the path is passed to it
