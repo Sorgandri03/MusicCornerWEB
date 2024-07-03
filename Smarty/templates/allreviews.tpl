@@ -84,7 +84,7 @@
 								</div>
 								<br>
 								<form action="/Admin/deleteReview" method="post">			
-								<button class="btn btn-outline-primary btn-lg dashboard-button" name="review" value={$review->getId()}><strong>Cancella review e sospendi utente</strong></button>
+								<button class="btn btn-outline-primary btn-lg dashboard-button-red" name="review" value={$review->getId()}><strong>Cancella review e sospendi utente</strong></button>
 								</form>
 							</li>
 							<br>
