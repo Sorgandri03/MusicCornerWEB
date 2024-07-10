@@ -95,6 +95,9 @@ class COrders{
         }        
     }
 
+    /**
+     * Check the cart and update the quantity of the products if they were changed
+     */
     public static function checkCart(){
         /**
          * Retrieve user cart from the session
@@ -140,7 +143,7 @@ class COrders{
         /**
          * Retrieve user cart from the session
          */
-        if(CUser::islogged()){
+        if(CUser::islogged() && USession::isSetSessionElement('customer')){
             $customer = USession::getInstance()->getSessionElement('customer');
             if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
                 $cart = USession::getInstance()->getSessionElement($customer->getUsername());
@@ -189,7 +192,7 @@ class COrders{
         /**
          * Retrieve user cart from the session
          */
-        if(CUser::islogged()){
+        if(CUser::islogged() && USession::isSetSessionElement('customer')){
             $customer = USession::getInstance()->getSessionElement('customer');
             if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
                 $cart = USession::getInstance()->getSessionElement($customer->getUsername());
@@ -248,7 +251,7 @@ class COrders{
         /**
          * Retrieve user cart from the session
          */
-        if(CUser::islogged()){
+        if(CUser::islogged() && USession::isSetSessionElement('customer')){
             $customer = USession::getInstance()->getSessionElement('customer');
             if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
                 $cart = USession::getInstance()->getSessionElement($customer->getUsername());
