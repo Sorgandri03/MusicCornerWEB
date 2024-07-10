@@ -31,7 +31,7 @@ class COrders{
         /**
          * Retrieve user cart from the session
          */
-        if(CUser::islogged()){
+        if(CUser::islogged() && USession::isSetSessionElement('customer')){
             $customer = USession::getInstance()->getSessionElement('customer');
             if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
                 $cart = USession::getInstance()->getSessionElement($customer->getUsername());
@@ -99,7 +99,7 @@ class COrders{
         /**
          * Retrieve user cart from the session
          */
-        if(CUser::islogged() && CUser::userType(USession::getSessionElement('customer')) == 'customer'){
+        if(CUser::islogged() && USession::isSetSessionElement('customer')){
             $customer = USession::getInstance()->getSessionElement('customer');
             if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
                 $cart = USession::getInstance()->getSessionElement($customer->getUsername());
@@ -380,9 +380,13 @@ class COrders{
      * The last page of the order, where the user can choose the payment method
      */
     public static function payment(){
-        if(!CUser::islogged() && CUser::userType(USession::getInstance()->getSessionElement('customer')) == 'customer'){
+        if(!CUser::islogged()){
             header('Location: /User/login');
             return;            
+        }
+        if(USession::getInstance()->isSetSessionElement('seller') || USession::getInstance()->isSetSessionElement('admin')){
+            header('Location: /404');
+            return;
         }
         
         /**
@@ -486,7 +490,7 @@ class COrders{
             return;            
         }
         if(USession::getInstance()->isSetSessionElement('seller') || USession::getInstance()->isSetSessionElement('admin')){
-            CUser::logout();
+            header('Location: /404');
             return;
         }
         
