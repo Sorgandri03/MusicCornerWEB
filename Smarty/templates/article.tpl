@@ -226,8 +226,6 @@
 								<li>Formato</li>
 								{if $article->getFormat()==1}
 									<li><a href="/Search/format/Vinyl">LP</a></li>
-								{elseif $article->getFormat()==1}
-									<li><a href="/Search/format/Cassette">Cassetta</a></li>
 								{else}
 									<li><a href="/Search/format/CD">CD</a></li>
 								{/if}								
