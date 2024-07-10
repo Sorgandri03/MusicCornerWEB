@@ -99,7 +99,7 @@ class COrders{
         /**
          * Retrieve user cart from the session
          */
-        if(CUser::islogged()){
+        if(CUser::islogged() && CUser::userType(USession::getSessionElement('customer')) == 'customer'){
             $customer = USession::getInstance()->getSessionElement('customer');
             if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
                 $cart = USession::getInstance()->getSessionElement($customer->getUsername());
