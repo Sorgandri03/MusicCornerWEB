@@ -171,7 +171,7 @@ class CUser{
                     $seller = new ECustomer($username, $email, $password);
                     FPersistentManager::getInstance()->createObj($user);
                     FPersistentManager::getInstance()->createObj($seller);
-                    header('Location: /MusicCorner/User/login');
+                    header('Location: /User/login');
                     exit;
                 } else {
                     $view = new VRegistration();  
@@ -212,7 +212,7 @@ class CUser{
                     $seller = new ESeller($email, $password, $username);
                     FPersistentManager::getInstance()->createObj($user);
                     FPersistentManager::getInstance()->createObj($seller);
-                    header('Location: /MusicCorner/User/login');
+                    header('Location: /User/login');
                     exit;
                 } else {
                     $view = new VRegistration();

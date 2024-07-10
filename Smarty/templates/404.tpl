@@ -9,26 +9,26 @@
 		<title>Page not found</title>
 
 		<!-- favicon -->
-		<link rel="icon" href="Smarty/templates/img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="../../Smarty/templates/img/favicon.ico" type="image/x-icon">
 		
 		<!-- Google font -->
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+		<link href="../../https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
 		<!-- Bootstrap -->
-		<link type="text/css" rel="stylesheet" href="Smarty/templates/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="../../Smarty/templates/css/bootstrap.min.css"/>
 
 		<!-- Slick -->
-		<link type="text/css" rel="stylesheet" href="Smarty/templates/css/slick.css"/>
-		<link type="text/css" rel="stylesheet" href="Smarty/templates/css/slick-theme.css"/>
+		<link type="text/css" rel="stylesheet" href="../../Smarty/templates/css/slick.css"/>
+		<link type="text/css" rel="stylesheet" href="../../Smarty/templates/css/slick-theme.css"/>
 
 		<!-- nouislider -->
-		<link type="text/css" rel="stylesheet" href="Smarty/templates/css/nouislider.min.css"/>
+		<link type="text/css" rel="stylesheet" href="../../Smarty/templates/css/nouislider.min.css"/>
 
 		<!-- Font Awesome Icon -->
-		<link rel="stylesheet" href="Smarty/templates/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../Smarty/templates/css/font-awesome.min.css">
 
 		<!-- Custom stlylesheet -->
-		<link type="text/css" rel="stylesheet" href="Smarty/templates/css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="../../Smarty/templates/css/style.css"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +51,7 @@
 						<div class="col-md-3">
 							<div class="header-logo">
 								<a href="/" class="logo">
-									<img src="Smarty/templates/img/logo.png" alt="">
+									<img src="../../Smarty/templates/img/logo.png" alt="">
 								</a>
 							</div>
 						</div>
@@ -89,7 +89,7 @@
 														<img src="https://www.ibs.it/images/{$article->getId()}_0_536_0_75.jpg" alt="">
 													</div>
 													<div class="product-body">
-														<h3 class="product-name"><a href="/Search/article/{$article->getId()}">{$article->getName()}</a></h3>
+														<h3 class="product-name"><a href="Search/article/{$article->getId()}">{$article->getName()}</a></h3>
 														<h4 class="product-price"><span class="qty">{$quantity}x</span>€{$stock->getPrice()}</h4>
 													</div>
 												</div>
@@ -100,8 +100,8 @@
 											<h5>SUBTOTALE: €{$cart->getTotalPrice()}</h5>
 										</div>
 										<div class="cart-btns">
-											<a href="/Orders/cart">Carrello</a>
-											<a href="/Orders/checkout">Ordina<i class="fa fa-arrow-circle-right"></i></a>
+											<a href="Orders/cart">Carrello</a>
+											<a href="Orders/checkout">Ordina<i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>
@@ -110,7 +110,7 @@
 
 								<!-- Wishlist -->
 								<div>
-									<a href="/User/login">
+									<a href="User/login">
 										<i class="fa fa-user-o"></i>
 										<span>{$username}</span>
 									</a>
@@ -154,12 +154,12 @@
         <!-- /BREADCRUMB -->
 
 		<!-- jQuery Plugins -->
-		<script src="Smarty/templates/js/jquery.min.js"></script>
-		<script src="Smarty/templates/js/bootstrap.min.js"></script>
-		<script src="Smarty/templates/js/slick.min.js"></script>
-		<script src="Smarty/templates/js/nouislider.min.js"></script>
-		<script src="Smarty/templates/js/jquery.zoom.min.js"></script>
-		<script src="Smarty/templates/js/main.js"></script>
+		<script src="../../Smarty/templates/js/jquery.min.js"></script>
+		<script src="../../Smarty/templates/js/bootstrap.min.js"></script>
+		<script src="../../Smarty/templates/js/slick.min.js"></script>
+		<script src="../../Smarty/templates/js/nouislider.min.js"></script>
+		<script src="../../Smarty/templates/js/jquery.zoom.min.js"></script>
+		<script src="../../Smarty/templates/js/main.js"></script>
 
 	</body>
 </html>
