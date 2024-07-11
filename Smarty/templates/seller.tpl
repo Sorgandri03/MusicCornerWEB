@@ -68,6 +68,27 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h1>Benvenuto {$username}</h1>
+						{if $seller->getShopRating() != 0}
+						<div class="rating-avg">
+							<span>Voto: {number_format($seller->averageRatingInt() + $seller->averageRatingDecimal(),1)}</span>
+							<div class="rating-stars">
+								{for $i=0 to $seller->averageRatingInt()-1}
+									<i class="fa fa-star"></i>
+								{/for}
+								{if $seller->averageRatingDecimal() >0.48}
+									<i class="fa fa-star-half-o"></i>
+									{for $i=$seller->averageRatingInt() to 3}
+										<i class="fa fa-star-o empty"></i>
+									{/for}
+								{else}
+									{for $i=$seller->averageRatingInt() to 4}
+										<i class="fa fa-star-o empty"></i>
+									{/for}
+								{/if}
+							</div>
+							<span>({count($seller->getReviews())} recensioni)</span>
+						</div>
+						{/if}
 					<ul>
 						<li><a href="/Seller/recentOrders" class="btn btn-outline-primary btn-lg dashboard-button"><strong>Ordini Recenti</strong></a></li>
 						<li><a href="/Seller/addArticle" class="btn btn-outline-primary btn-lg dashboard-button"><strong>Carica Articolo</strong></a></li>
