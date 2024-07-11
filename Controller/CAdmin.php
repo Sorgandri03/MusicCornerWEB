@@ -19,7 +19,7 @@ Class CAdmin{
          * Redirect to login if the user is not logged or is not an admin
          */
         else{
-            header('Location: User/login');
+            header('Location: /User/login');
             return;
         }
     }
@@ -40,7 +40,7 @@ Class CAdmin{
          * Redirect to login if the user is not logged or is not an admin
          */
         else {
-            header('Location: User/Login');
+            header('Location: /User/Login');
         }
     }
 
