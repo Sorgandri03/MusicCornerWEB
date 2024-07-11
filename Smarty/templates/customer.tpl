@@ -63,7 +63,7 @@
 		<!-- /MAIN HEADER -->
 	</header>
 	<!-- /HEADER -->
-	 <!-- CUSTOMER DASHBOARD -->
+	<!-- CUSTOMER DASHBOARD -->
 	<div class="customer-dashboard section">
 		<div class="container">
 			<div class="row">

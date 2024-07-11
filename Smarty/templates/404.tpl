@@ -12,7 +12,7 @@
 		<link rel="icon" href="../../Smarty/templates/img/favicon.ico" type="image/x-icon">
 		
 		<!-- Google font -->
-		<link href="../../https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
 		<!-- Bootstrap -->
 		<link type="text/css" rel="stylesheet" href="../../Smarty/templates/css/bootstrap.min.css"/>
@@ -100,8 +100,8 @@
 											<h5>SUBTOTALE: €{$cart->getTotalPrice()}</h5>
 										</div>
 										<div class="cart-btns">
-											<a href="Orders/cart">Carrello</a>
-											<a href="Orders/checkout">Ordina<i class="fa fa-arrow-circle-right"></i></a>
+											<a href="/Orders/cart">Carrello</a>
+											<a href="/Orders/checkout">Ordina<i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>
@@ -110,7 +110,7 @@
 
 								<!-- Wishlist -->
 								<div>
-									<a href="User/login">
+									<a href="/User/login">
 										<i class="fa fa-user-o"></i>
 										<span>{$username}</span>
 									</a>
@@ -133,25 +133,18 @@
 		<!-- /HEADER -->
 
         
-        <!-- BREADCRUMB -->
-        <div id="breadcrumb" class="section">
-			<!-- container -->
+        <!-- 404 MESSAGE -->
+		<div class="customer-dashboard section">
 			<div class="container">
-				<!-- row -->
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="breadcrumb-header">ERRORE 404</h3>
-						<ul class="breadcrumb-tree">
-							<li>Non abbiamo trovato la pagina che cercavi</li>
-							
-						</ul>
+						<h1>ERRORE 404</h1>
+						<h2>La pagina che stai cercando non esiste</h2>
 					</div>
 				</div>
-				<!-- /row -->
 			</div>
-			<!-- /container -->
 		</div>
-        <!-- /BREADCRUMB -->
+		<!-- /404 MESSAGE -->
 
 		<!-- jQuery Plugins -->
 		<script src="../../Smarty/templates/js/jquery.min.js"></script>
