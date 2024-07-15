@@ -301,27 +301,14 @@ class COrders{
             return;
         }
         
-        /**
-         * Retrieve user cart from the session
-         */
-        if(CUser::islogged()){
-            $customer = USession::getInstance()->getSessionElement('customer');
-            if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
-                $cart = USession::getInstance()->getSessionElement($customer->getUsername());
-            }
-            else{
-                $cart = new ECart($customer->getId());
-                USession::getInstance()->setSessionElement($customer->getUsername(),$cart);
-            }
+
+        $customer = USession::getInstance()->getSessionElement('customer');
+        if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
+            $cart = USession::getInstance()->getSessionElement($customer->getUsername());
         }
-        else {
-            if(USession::getInstance()->isSetSessionElement('cartguest')){
-                $cart = USession::getInstance()->getSessionElement('cartguest');
-            }
-            else{
-                $cart = new ECart('guest');
-                USession::getInstance()->setSessionElement('cartguest',$cart);
-            }
+        else{
+            $cart = new ECart($customer->getId());
+            USession::getInstance()->setSessionElement($customer->getUsername(),$cart);
         }
 
         $old = $cart->getCartItems();
@@ -392,27 +379,13 @@ class COrders{
             return;
         }
         
-        /**
-         * Retrieve user cart from the session
-         */
-        if(CUser::islogged()){
-            $customer = USession::getInstance()->getSessionElement('customer');
+        $customer = USession::getInstance()->getSessionElement('customer');
             if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
                 $cart = USession::getInstance()->getSessionElement($customer->getUsername());
             }
-            else{
-                $cart = new ECart($customer->getId());
-                USession::getInstance()->setSessionElement($customer->getUsername(),$cart);
-            }
-        }
-        else {
-            if(USession::getInstance()->isSetSessionElement('cartguest')){
-                $cart = USession::getInstance()->getSessionElement('cartguest');
-            }
-            else{
-                $cart = new ECart('guest');
-                USession::getInstance()->setSessionElement('cartguest',$cart);
-            }
+        else{
+            $cart = new ECart($customer->getId());
+            USession::getInstance()->setSessionElement($customer->getUsername(),$cart);
         }
 
         /**
@@ -497,27 +470,13 @@ class COrders{
             return;
         }
         
-        /**
-         * Retrieve user cart from the session
-         */
-        if(CUser::islogged()){
-            $customer = USession::getInstance()->getSessionElement('customer');
+        $customer = USession::getInstance()->getSessionElement('customer');
             if(USession::getInstance()->isSetSessionElement($customer->getUsername())){
                 $cart = USession::getInstance()->getSessionElement($customer->getUsername());
             }
-            else{
-                $cart = new ECart($customer->getId());
-                USession::getInstance()->setSessionElement($customer->getUsername(),$cart);
-            }
-        }
-        else {
-            if(USession::getInstance()->isSetSessionElement('cartguest')){
-                $cart = USession::getInstance()->getSessionElement('cartguest');
-            }
-            else{
-                $cart = new ECart('guest');
-                USession::getInstance()->setSessionElement('cartguest',$cart);
-            }
+        else{
+            $cart = new ECart($customer->getId());
+            USession::getInstance()->setSessionElement($customer->getUsername(),$cart);
         }
 
         /**
